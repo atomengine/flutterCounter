@@ -18,6 +18,7 @@ class Counter extends StatelessWidget {
     @required this.onChanged,
     @required this.decimalPlaces,
     this.color,
+    this.iconsColor,
     this.textStyle,
     this.step = 1,
     this.buttonSize = 25,
@@ -53,6 +54,9 @@ class Counter extends StatelessWidget {
 
   final double buttonSize;
 
+  /// indicates the color of fab used for increment and decrement
+  Color iconsColor;
+  
   void _incrementCounter() {
     if (selectedValue + step <= maxValue) {
       onChanged((selectedValue + step));
@@ -86,7 +90,7 @@ class Counter extends StatelessWidget {
               onPressed: _decrementCounter,
               elevation: 2,
               tooltip: 'Decrement',
-              child: Icon(Icons.remove),
+              child: Icon(Icons.remove, color: iconsColor),
               backgroundColor: color,
             ),
           ),
@@ -104,7 +108,7 @@ class Counter extends StatelessWidget {
               onPressed: _incrementCounter,
               elevation: 2,
               tooltip: 'Increment',
-              child: Icon(Icons.add),
+              child: Icon(Icons.add, color: iconsColor),
               backgroundColor: color,
             ),
           ),
